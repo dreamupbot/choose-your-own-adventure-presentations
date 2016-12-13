@@ -19,10 +19,10 @@ TWILIO_NUMBER = os.environ.get('TWILIO_NUMBER', None)
 # Celery
 CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL')
 CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND')
-CELERY_IMPORTS=("cyoa.tasks",)
+CELERY_IMPORTS=("deploy_api.tasks",)
 CELERYBEAT_SCHEDULE = {
     'persist-votes': {
-        'task': 'cyoa.tasks.persist_votes',
+        'task': 'deploy_api.tasks.persist_votes',
         'schedule': timedelta(minutes=5),
     }
 }
